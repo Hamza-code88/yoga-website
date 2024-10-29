@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Animation Header</title>
+   <style type="text/css">
+       
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-color: #f4f4f4;
+}
+
+.image1, .image2 {
+    position: absolute;
+    width: 400px;
+    transition: transform 1s ease-in-out;
+/*    opacity: 0;*/
+   /* Initially hidden */
+}
+
+.image1 {
+top: 20px; 
+left: 50%;
+
+transform: translate(-50%, -130%);
+}
+
+.image2 {
+    bottom: -100px;
+    left: 50%;
+    transform: translate(-50%, 80%);
+}
+
+.heading1, .heading2 {
+    position: absolute;
+    font-size: 24px;
+    color: #333;
+    opacity: 0; /* Initially hidden */
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+.heading1 {
+    top: 50%;
+    left: -200px; /* Start far left */
+    transform: translateY(-50%);
+}
+
+.heading2 {
+    bottom: 50%;
+    right: -200px; /* Start far right bottom */
+    transform: translateY(50%);
+}
+
+.content {
+    height: 2000px;
+    padding: 20px;
+/*    background-color: #e2e2e2;*/
+}
+
+   </style>
+</head>
+<body>
+   <header>
+        <img src="img/header1.jpg" alt="Image 1" class="image1">
+        <img src="img/head.png" alt="Image 2" class="image2">
+        <h3 class="heading1">Heading Left</h3>
+        <h3 class="heading2">Heading Bottom Right</h3>
+    </header>
+
+    <div class="content">
+      <p>Lorem ipsum dolor sit amet...</p>
+        <p>Scroll to see the effect...</p>
+    </div>
+
+    <script>
+
+window.onload = function() {
+    
+        // Image 1 moves down to center
+        document.querySelector('.image1').style.transform = 'translate(-50%, 0)';
+        document.querySelector('.image1').style.opacity = '1';  // Make it visible
+
+        // Image 2 moves up to center
+        document.querySelector('.image2').style.transform = 'translate(-50%, -50%)';
+        document.querySelector('.image2').style.opacity = '1';  // Make it visible
+
+        // Heading 1 moves from left to center
+        document.querySelector('.heading1').style.transform = 'translate(150%, 50%)';
+        document.querySelector('.heading1').style.opacity = '1';  // Make it visible
+
+        // Heading 2 moves from right to center
+        document.querySelector('.heading2').style.transform = 'translate(-90%, 80%)';
+        document.querySelector('.heading2').style.opacity = '1';  // Make it visible
+    }
+       
+
+
+</script>
+</body>
+</html>
